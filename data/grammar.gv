@@ -42,7 +42,7 @@ digraph Grammar {
 	a_list->a_list;
 	
 	edge_stmt->node_id;
-	edge_stmt->subgraph;
+	edge_stmt->"subgraph";
 	edge_stmt->edgeRHS;
 	edge_stmt->attr_list;
 
