@@ -8,3 +8,9 @@ div#graph {
     padding:1em;
     width:83%;
 }
+
+div.catchall {
+    background: lightblue;
+    padding:0.25em;
+    border: darkgrey;
+}
