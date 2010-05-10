@@ -7,6 +7,7 @@ div#graph {
     border:2px solid blue;
     padding:1em;
     width:83%;
+    height:500px;
 }
 
 div.catchall {
@@ -14,3 +15,52 @@ div.catchall {
     padding:0.25em;
     border: darkgrey;
 }
+
+div.node {
+    background: grey;
+    padding:0.2em;
+    position: relative;
+    margin:2px;
+    border:1px solid black;
+}
+
+div.desc { /* node description */
+    font-family:monospace;
+    width:8em;
+}
+
+div.desc table { 
+    width:98%;
+}
+
+div.desc td {
+    text-align:right;
+}
+
+div.x0 {
+    left:0%;
+}
+div.x45 {
+    left:45%;
+}
+div.x50 {
+    left:50%;
+}
+div.x80 {
+    left:80%;
+}
+
+div.y0 {
+    top:0%;
+}
+div.y45 {
+    top:45%;
+}
+div.y50 {
+    top:50%;
+}
+div.y80 {
+    top:80%;
+}
+
+

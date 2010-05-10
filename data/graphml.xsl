@@ -18,30 +18,48 @@
       <body>
 	<html:h1>Graphml Viewer</html:h1>
 	<html:div id="graph">
-	  <xsl:apply-templates select="//gml:graphml"/>
+	  <xsl:apply-templates select="//gml:graphml/gml:graph"/>
 	</html:div>
       </body>
     </html>
   </xsl:template>
 
-  <xsl:template match="gml:graphml">
-    <html:div class="node desc">
-      <html:table>
+  <xsl:template match="gml:graph">
+    <xsl:apply-templates select="gml:node"/>
+  </xsl:template>
+
+  <xsl:template match="gml:node[gml:data[@key='name']='marko']">
+    <xsl:apply-templates select="." mode="default">
+      <xsl:with-param name="class">x50 y0</xsl:with-param>
+    </xsl:apply-templates>
+  </xsl:template>
+  
+  <xsl:template match="gml:node">
+    <xsl:apply-templates select="." mode="default"/>
+  </xsl:template>
+
+  <xsl:template match="gml:node" mode="default">
+    <div class="node desc">
+      <table>
 	<tr>
-	  <th>name</th>
-	  <td>lop</td>
+	  <th/>
+	  <td><xsl:value-of select="position()"/></td>
 	</tr>
-	<tr>
-	  <th>lang</th>
-	  <td>java</td>
-	</tr>
-      </html:table>
-    </html:div>
+	<xsl:apply-templates select="gml:data"/>
+      </table>
+    </div>
+  </xsl:template>
+
+  <xsl:template match="gml:data">
+    <tr>
+      <th><xsl:value-of select="@key"/></th>
+      <td><xsl:value-of select="."/></td>
+    </tr>
   </xsl:template>
 
   <xsl:template match="*">
     <div class="catchall">
-      catchall: <xsl:value-of select="."/>
+      catchall[name()=<xsl:value-of select="name()"/>]: <xsl:value-of select="."/>
     </div>
   </xsl:template>
 
