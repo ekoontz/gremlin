@@ -4,11 +4,12 @@ div {
 }
 
 div#graph {
-    border:2px solid blue;
     padding:1em;
     width:83%;
     height:500px;
     position:absolute;
+    overflow:auto;
+    border:2px solid #002200;
 }
 
 div.catchall {

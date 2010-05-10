@@ -14,7 +14,8 @@
       <xsl:with-param name="class">x50 y0</xsl:with-param>
       <xsl:with-param name="position" select="position()"/>
     </xsl:apply-templates>
-    <img style="position:absolute;left:15%;top:5%" width="35%" height="200px" src="image-svg.svg"/>
+
+    <img src="vertex.svg"/>
 
   </xsl:template>
 

@@ -202,7 +202,7 @@
        ry="4.2426391" />
     <text
        xml:space="preserve"
-       style="font-size:13.64624977px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       style="font-size:5px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
        x="9.0246935"
        y="27.793253"
        id="text1331"
@@ -210,6 +210,6 @@
          sodipodi:role="line"
          id="tspan1333"
          x="9.0246935"
-         y="27.793253">SVG</tspan></text>
+         y="27.793253">created</tspan></text>
   </g>
 </svg>
