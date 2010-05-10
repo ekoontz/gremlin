@@ -11,9 +11,9 @@
 
   <g fill="white" stroke="black" stroke-width="5" >
 
-    <path fill="none" d="M115,130 C250,50 300,100 360,55" />
+    <path fill="none" d="M118,130 C200,50 300,20 360,35" />
 
-    <use xlink:href="#Triangle" transform="translate(363 53) rotate(330)" overflow="visible"  />
+    <use xlink:href="#Triangle" transform="translate(363 37) rotate(375)" overflow="visible"  />
   </g>
 </svg>
 
