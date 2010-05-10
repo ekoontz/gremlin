@@ -21,7 +21,7 @@
 	<path fill="none" stroke-width="3" d="M265,70 360,29" />
 	<text fill="solid" x="230" y="80" font-family="verdana" 
 	      font-size="16" text-anchor="middle" background="black">created</text>
-	<use xlink:href="#Triangle" transform="translate(366 25) rotate(340)" overflow="visible"/>
+	<use xlink:href="#Triangle" transform="translate(366 26) rotate(340)" overflow="visible"/>
       </g>
     </svg>
 
