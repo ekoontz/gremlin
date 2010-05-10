@@ -30,9 +30,6 @@
       <xsl:with-param name="position" select="position()"/>
     </xsl:apply-templates>
 
-    <img src="vertex.svg"/>
-    
-
   </xsl:template>
 
   <xsl:template match="gml:node[gml:data[@key='name']='marko']">
