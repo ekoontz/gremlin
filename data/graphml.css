@@ -8,6 +8,7 @@ div#graph {
     padding:1em;
     width:83%;
     height:500px;
+    position:absolute;
 }
 
 div.catchall {
@@ -19,7 +20,7 @@ div.catchall {
 div.node {
     background: grey;
     padding:0.2em;
-    position: relative;
+    position: absolute;
     margin:2px;
     border:1px solid black;
 }
@@ -49,15 +50,33 @@ div.x50 {
 div.x80 {
     left:80%;
 }
+div.x85 {
+    left:85%;
+}
 
 div.y0 {
     top:0%;
+}
+div.y10 {
+    top:10%;
+}
+div.y20 {
+    top:20%;
+}
+div.y25 {
+    top:25%;
+}
+div.y30 {
+    top:30%;
 }
 div.y45 {
     top:45%;
 }
 div.y50 {
     top:50%;
+}
+div.y65 {
+    top:65%;
 }
 div.y80 {
     top:80%;
