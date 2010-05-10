@@ -27,19 +27,14 @@
   <xsl:template match="gml:graph">
     <xsl:apply-templates select="gml:node"/>
   </xsl:template>
-
-  <xsl:template match="gml:node[gml:data[@key='name']='marko']">
-    <xsl:apply-templates select="." mode="default">
-      <xsl:with-param name="class">x50 y0</xsl:with-param>
-    </xsl:apply-templates>
-  </xsl:template>
   
   <xsl:template match="gml:node">
     <xsl:apply-templates select="." mode="default"/>
   </xsl:template>
 
   <xsl:template match="gml:node" mode="default">
-    <div class="node desc">
+    <xsl:param name="class"/>
+    <div class="node desc {$class}">
       <table>
 	<tr>
 	  <th/>
@@ -65,6 +60,12 @@
 
   <xsl:template match="*" mode="css">
     <html:link href="graphml.css" media="screen" rel="stylesheet" type="text/css" />
+  </xsl:template>
+
+  <xsl:template match="gml:node[gml:data[@key='name']='marko']">
+    <xsl:apply-templates select="." mode="default">
+      <xsl:with-param name="class">x50 y0</xsl:with-param>
+    </xsl:apply-templates>
   </xsl:template>
 
 </xsl:stylesheet>
