@@ -27,19 +27,38 @@
   <xsl:template match="gml:graph">
     <xsl:apply-templates select="gml:node"/>
   </xsl:template>
-  
+
   <xsl:template match="gml:node">
     <xsl:apply-templates select="." mode="default"/>
   </xsl:template>
 
-  <xsl:template match="gml:node" mode="default">
+  <xsl:template match="gml:node" mode="ball">
+    <xsl:param name="position">1</xsl:param>
+    <xsl:param name="class"/>
+    <div class="ball {$class}">
+      <xsl:value-of select="$position"/>
+    </div>
+  </xsl:template>
+
+  <xsl:template match="gml:node" mode="node">
     <xsl:param name="class">x0 y0</xsl:param>
+    <xsl:param name="position" select="position()"/>
+
+    <div class="nodepack {$class}">
+      <xsl:apply-templates select="." mode="default"/>
+      
+      <xsl:apply-templates select="." mode="ball">
+	<xsl:with-param name="position" select="$position"/>
+      </xsl:apply-templates>
+
+      </div>
+
+    </xsl:template>
+
+  <xsl:template match="gml:node" mode="default">
+    <xsl:param name="class"/>
     <div class="node desc {$class}">
       <table>
-	<tr>
-	  <th/>
-	  <td><xsl:value-of select="position()"/></td>
-	</tr>
 	<xsl:apply-templates select="gml:data"/>
       </table>
     </div>

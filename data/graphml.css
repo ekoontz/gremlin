@@ -17,17 +17,34 @@ div.catchall {
     border: darkgrey;
 }
 
+div.nodepack {
+    border:1px dashed blue;
+    padding:0.2em;
+    position: absolute;
+}
+
 div.node {
     background: grey;
     padding:0.2em;
-    position: absolute;
     margin:2px;
     border:1px solid black;
 }
 
-div.desc { /* node description */
-    font-family:monospace;
+div.ball {
+    background: lightblue;
+    padding:0.2em;
+    margin:2px;
+    border:1px solid black;
+    width:4em;
+}
+
+div.desc {
+    font-size:10pt;
     width:8em;
+}
+
+div.desc td { /* node description */
+    font-family:monospace;
 }
 
 div.desc table { 
@@ -55,7 +72,10 @@ div.x85 {
 }
 
 div.y0 {
-    top:0%;
+    top:0em;
+}
+div.y0_ball {
+    top:3.0em;
 }
 div.y10 {
     top:10%;
