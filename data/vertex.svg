@@ -9,11 +9,11 @@
     <path id="Triangle" d="M 10,0 L -8,9 v-18 z" fill="black" stroke="none" />
   </defs>
 
-  <g fill="white" stroke="black" stroke-width="5" >
-
-    <path fill="none" d="M118,130 C200,50 300,20 360,35" />
-
-    <use xlink:href="#Triangle" transform="translate(363 37) rotate(375)" overflow="visible"  />
+  <g fill="white" stroke="black">
+    <path fill="none" stroke-width="3" d="M118,130 C200,10 300,20 360,35" />
+    <text fill="solid" x="220" y="75" font-family="verdana" 
+	  font-size="18" text-anchor="middle" background="black">created</text>
+    <use xlink:href="#Triangle" transform="translate(363 37) rotate(385)" overflow="visible"/>
   </g>
 </svg>
 
