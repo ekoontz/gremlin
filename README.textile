@@ -1,10 +1,67 @@
-!http://github.com/tinkerpop/gremlin/raw/master/doc/images/gremlin-logo.png!
+Forked from  "tinkerpop's gremlin wiki":/tinkerpop/gremlin
 
-Gremlin is a "Turing-complete":http://en.wikipedia.org/wiki/Turing_completeness, "graph-based":http://en.wikipedia.org/wiki/Graph_%28mathematics%29 programming language developed in Java 1.6+ ("JSR 223":http://jcp.org/en/jsr/detail?id=223) for key/value-pair multi-relational graphs called property graphs. Gremlin makes extensive use of "XPath 1.0":http://www.w3.org/TR/xpath to support complex graph traversals. This language has application in the areas of graph query, analysis, and manipulation. Connectors, provided by "Blueprints":http://blueprints.tinkerpop.com, exist for the following graph management systems:
+h1. XSL support for GraphML XML documents
 
-* "TinkerGraph":http://wiki.github.com/tinkerpop/gremlin/tinkergraph in-memory graph
-* "Neo4j":http://neo4j.org/ graph database
-* "Sesame 2.0":http://www.openrdf.org compliant RDF stores
-* "Java Universal Network/Graph Framework":http://jung.sourceforge.net algorithms package
+I've forked gremlin to work on adding XSL support to render GraphML documents as HTML documents, with embedded SVG for vertices. 
 
-The documentation for Gremlin can be found at this "location":http://gremlin.tinkerpop.com. Finally, please visit "TinkerPop":http://tinkerpop.com for other software products.
+Here is the source XML example of a GraphML-encoded graph :
+
+"graph-example-1.xml":http://github.com/ekoontz/gremlin/blob/master/data/graph-example-1.xml
+
+The XSL is broken into two parts : the first is specific to a particular graph, and encodes the actual positions and other quantities related to that graph: See example-specific XSL here:
+
+"graph-example-1.xsl":http://github.com/ekoontz/gremlin/blob/master/data/graph-example-1.xsl
+
+The other part is generically written for any GraphML graph:
+
+"graphml.xsl":http://github.com/ekoontz/gremlin/blob/master/data/graphml.xsl
+
+CSS here:
+
+"graphml.css":http://github.com/ekoontz/gremlin/blob/master/data/graphml.css
+
+and SVG (for vertices) here:
+
+"vertex.xsl":http://github.com/ekoontz/gremlin/blob/master/data/vertex.svg
+
+Compare with the "reference implementation" from the Gremlin documentation Wiki:
+
+!http://github.com/tinkerpop/gremlin/raw/master/doc/images/graph-example-1.jpg!
+
+
+It depends on support for showing SVG images as part of <img> tag's src attribute. Currently only Safari seems to support this:
+
+!http://github.com/ekoontz/gremlin/raw/master/data/safari.png!Forked from  "tinkerpop's gremlin wiki":/tinkerpop/gremlin
+
+h1. XSL support for GraphML XML documents
+
+I've forked gremlin to work on adding XSL support to render GraphML documents as HTML documents, with embedded SVG for vertices. 
+
+Here is the source XML example of a GraphML-encoded graph :
+
+"graph-example-1.xml":http://github.com/ekoontz/gremlin/blob/master/data/graph-example-1.xml
+
+The XSL is broken into two parts : the first is specific to a particular graph, and encodes the actual positions and other quantities related to that graph: See example-specific XSL here:
+
+"graph-example-1.xsl":http://github.com/ekoontz/gremlin/blob/master/data/graph-example-1.xsl
+
+The other part is generically written for any GraphML graph:
+
+"graphml.xsl":http://github.com/ekoontz/gremlin/blob/master/data/graphml.xsl
+
+CSS here:
+
+"graphml.css":http://github.com/ekoontz/gremlin/blob/master/data/graphml.css
+
+and SVG (for vertices) here:
+
+"vertex.xsl":http://github.com/ekoontz/gremlin/blob/master/data/vertex.svg
+
+Compare with the "reference implementation" from the Gremlin documentation Wiki:
+
+!http://github.com/tinkerpop/gremlin/raw/master/doc/images/graph-example-1.jpg!
+
+
+It depends on support for showing SVG images as part of <img> tag's src attribute. Currently only Safari seems to support this:
+
+!http://github.com/ekoontz/gremlin/raw/master/data/safari.png!
