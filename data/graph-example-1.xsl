@@ -25,7 +25,7 @@
 
   <xsl:template match="gml:node[gml:data[@key='name']='vadas']">
     <xsl:apply-templates select="." mode="node">
-      <xsl:with-param name="class">x0 y30</xsl:with-param>
+      <xsl:with-param name="class">x0 y45</xsl:with-param>
       <xsl:with-param name="position" select="position()"/>
     </xsl:apply-templates>
   </xsl:template>

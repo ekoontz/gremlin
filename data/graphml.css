@@ -18,24 +18,34 @@ div.catchall {
 }
 
 div.nodepack {
-    border:1px dashed blue;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border:1px solid blue;
     padding:0.2em;
     position: absolute;
+    background:lightgrey;
 }
 
 div.node {
     background: grey;
     padding:0.2em;
     margin:2px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
     border:1px solid black;
+    width:100%;
 }
 
 div.ball {
+    text-align:center;
+    float:left;
+    margin-left:40%;
+    width:auto;
     background: lightblue;
     padding:0.2em;
-    margin:2px;
     border:1px solid black;
-    width:4em;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
 div.desc {
