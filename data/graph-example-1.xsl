@@ -58,9 +58,12 @@
 
 
     <xsl:variable name="source_id"><xsl:value-of select="@source"/></xsl:variable>
+ 
+    <xsl:variable name="source_x2"><xsl:value-of select="../gml:node[@id = $source_id]/@x + 0"/></xsl:variable>
+
+<xsl:variable name="source_x"><xsl:value-of select="$source_x2"/></xsl:variable>
     <xsl:variable name="source"><xsl:value-of select="../gml:node[@id = $source_id]"/></xsl:variable>
 
-    <xsl:variable name="source_x">600</xsl:variable>
     <xsl:variable name="source_y">200</xsl:variable>
     <xsl:variable name="dest_x">350</xsl:variable>
     <xsl:variable name="dest_y">25</xsl:variable>
