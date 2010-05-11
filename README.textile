@@ -8,11 +8,10 @@ Here is the source XML example of a GraphML-encoded graph :
 
 "graph-example-1.xml":http://github.com/ekoontz/gremlin/blob/master/data/graph-example-1.xml
 
-The XSL is broken into two parts : the first is specific to a particular graph, and encodes the actual positions and other quantities related to that graph: See example-specific XSL here:
+(Note that I manually annotated the XML with X and Y attributes to indicate my
+preferred positioning : at some point, this X and Y annotation will be done automatically using a graph-drawing algorithm).
 
-"graph-example-1.xsl":http://github.com/ekoontz/gremlin/blob/master/data/graph-example-1.xsl
-
-The other part is generically written for any GraphML graph:
+The XSL is generically written for any GraphML graph:
 
 "graphml.xsl":http://github.com/ekoontz/gremlin/blob/master/data/graphml.xsl
 
@@ -30,4 +29,4 @@ Compare with the "reference implementation" from the Gremlin documentation Wiki:
 
 It depends on support for embedding SVG elements (the @svg@ tag) embedded insideHTML documents. Currently both Firefox and Safari support this: (Safari support shown).
 
-!http://github.com/ekoontz/gremlin/raw/master/data/safari.png!
+!http://github.com/ekoontz/gremlin/raw/master/data/firefox.png!
