@@ -23,7 +23,19 @@
 	      font-size="16" text-anchor="middle" background="black">created</text>
 	<use xlink:href="#Triangle" transform="translate(305 38) rotate(340)" overflow="visible"/>
       </g>
+
+
+    <!-- josh created ripple -->
+      <g fill="white" stroke="black">
+	<path fill="none" stroke-width="3" d="M325,305 325,360" />
+	<text fill="black" stroke-width="1" x="365" y="335" font-family="verdana" 
+	      font-size="16" text-anchor="middle" background="black">created</text>
+	<use xlink:href="#Triangle" transform="translate(325 370) rotate(90)" overflow="visible"/>
+      </g>
+
     </svg>
+
+
   </xsl:template>
 
 </xsl:stylesheet>
