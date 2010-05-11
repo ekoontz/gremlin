@@ -26,10 +26,15 @@
 
   <xsl:template match="gml:graph">
     <xsl:apply-templates select="gml:node"/>
+    <xsl:apply-templates select="." mode="vertices"/>
+  </xsl:template>
+
+  <xsl:template match="gml:graph" mode="vertices">
+    <html:h2>gml:graph (mode='vertices'): override me..</html:h2>
   </xsl:template>
 
   <xsl:template match="gml:node">
-    <xsl:apply-templates select="." mode="default"/>
+    <xsl:apply-templates select="." mode="node"/>
   </xsl:template>
 
   <xsl:template match="gml:node" mode="ball">
@@ -41,11 +46,17 @@
   </xsl:template>
 
   <xsl:template match="gml:node" mode="node">
-    <xsl:param name="class">x0 y0</xsl:param>
+    <xsl:param name="class"/>
+    <xsl:param name="style"/>
+    <xsl:param name="x"><xsl:value-of select="@x"/></xsl:param>
+    <xsl:param name="y"><xsl:value-of select="@y"/></xsl:param>
     <xsl:param name="position" select="position()"/>
 
-    <div class="nodepack {$class}">
-      <xsl:apply-templates select="." mode="default"/>
+    <div class="nodepack {$class}" style="left:{$x}px;top:{$y}px;{$style}">
+      <xsl:if test="$style">
+	<xsl:attribute name="style"><xsl:value-of select="$style"/></xsl:attribute>
+      </xsl:if>
+      <xsl:apply-templates select="." mode="data"/>
       
       <xsl:apply-templates select="." mode="ball">
 	<xsl:with-param name="position" select="$position"/>
@@ -55,7 +66,7 @@
 
     </xsl:template>
 
-  <xsl:template match="gml:node" mode="default">
+  <xsl:template match="gml:node" mode="data">
     <xsl:param name="class"/>
     <div class="node desc {$class}">
       <table>

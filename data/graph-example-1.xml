@@ -9,27 +9,27 @@
     <key id="age" for="node" attr.name="age" attr.type="int"/>
     <key id="lang" for="node" attr.name="lang" attr.type="string"/>
     <graph id="G" edgedefault="directed">
-        <node id="1">
+        <node id="1" x="10" y="125">
             <data key="name">marko</data>
             <data key="age">29</data>
         </node>
-        <node id="2">
+        <node id="2" x="10" y="275">
             <data key="name">vadas</data>
             <data key="age">27</data>
         </node>
-        <node id="3">
+        <node id="3" x="350" y="25">
             <data key="name">lop</data>
             <data key="lang">java</data>
         </node>
-        <node id="4">
+        <node id="4" x="325" y="225">
             <data key="name">josh</data>
             <data key="age">32</data>
         </node>
-        <node id="5">
+        <node id="5" x="325" y="400">
             <data key="name">ripple</data>
             <data key="lang">java</data>
         </node>
-        <node id="6">
+        <node id="6" x="600" y="200">
             <data key="name">peter</data>
             <data key="age">35</data>
         </node>

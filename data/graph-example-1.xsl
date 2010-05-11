@@ -10,7 +10,7 @@
 
   <xsl:include href="graphml.xsl"/>
 
-  <xsl:template match="gml:node[gml:data[@key='name']='lop']">
+  <xsl:template match="gml:graph" mode="vertices">
 
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -18,53 +18,12 @@
       </defs>
       <g fill="white" stroke="black">
 	<path fill="none" stroke-width="3" d="M118,130 C150,20 215,150 225,85" />
-	<path fill="none" stroke-width="3" d="M229,65 C250,10 255,70 360,29" />
-	<text fill="solid" x="230" y="80" font-family="verdana" 
+	<path fill="none" stroke-width="3" d="M229,65 C250,10 255,70 300,38" />
+	<text fill="black" stroke-width="1" x="230" y="80" font-family="verdana" 
 	      font-size="16" text-anchor="middle" background="black">created</text>
-	<use xlink:href="#Triangle" transform="translate(366 26) rotate(340)" overflow="visible"/>
+	<use xlink:href="#Triangle" transform="translate(305 38) rotate(340)" overflow="visible"/>
       </g>
     </svg>
-
-    <xsl:apply-templates select="." mode="node">
-      <xsl:with-param name="class">x50 y0</xsl:with-param>
-      <xsl:with-param name="position" select="position()"/>
-    </xsl:apply-templates>
-
-  </xsl:template>
-
-  <xsl:template match="gml:node[gml:data[@key='name']='marko']">
-    <xsl:apply-templates select="." mode="node">
-      <xsl:with-param name="class">x0 y20</xsl:with-param>
-      <xsl:with-param name="position" select="position()"/>
-    </xsl:apply-templates>
-  </xsl:template>
-
-  <xsl:template match="gml:node[gml:data[@key='name']='vadas']">
-    <xsl:apply-templates select="." mode="node">
-      <xsl:with-param name="class">x0 y45</xsl:with-param>
-      <xsl:with-param name="position" select="position()"/>
-    </xsl:apply-templates>
-  </xsl:template>
-
-  <xsl:template match="gml:node[gml:data[@key='name']='josh']">
-    <xsl:apply-templates select="." mode="node">
-      <xsl:with-param name="class">x45 y25</xsl:with-param>
-      <xsl:with-param name="position" select="position()"/>
-    </xsl:apply-templates>
-  </xsl:template>
-
-  <xsl:template match="gml:node[gml:data[@key='name']='peter']">
-    <xsl:apply-templates select="." mode="node">
-      <xsl:with-param name="class">x80 y20</xsl:with-param>
-      <xsl:with-param name="position" select="position()"/>
-    </xsl:apply-templates>
-  </xsl:template>
-
-  <xsl:template match="gml:node[gml:data[@key='name']='ripple']">
-    <xsl:apply-templates select="." mode="node">
-      <xsl:with-param name="class">x45 y65</xsl:with-param>
-      <xsl:with-param name="position" select="position()"/>
-    </xsl:apply-templates>
   </xsl:template>
 
 </xsl:stylesheet>
