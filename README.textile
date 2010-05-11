@@ -61,7 +61,6 @@ Compare with the "reference implementation" from the Gremlin documentation Wiki:
 
 !http://github.com/tinkerpop/gremlin/raw/master/doc/images/graph-example-1.jpg!
 
-
-It depends on support for showing SVG images as part of <img> tag's src attribute. Currently only Safari seems to support this:
+It depends on support for embedding SVG elements (the @svg@ tag) embedded insideHTML documents. Currently both Firefox and Safari support this: (Safari support shown).
 
 !http://github.com/ekoontz/gremlin/raw/master/data/safari.png!
