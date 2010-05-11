@@ -44,9 +44,8 @@
       </g>
 
 
-      <xsl:apply-templates select="gml:edge[5]"/>
-      <xsl:apply-templates select="gml:edge[6]"/>
-
+<!--      <xsl:apply-templates select="gml:edge[5]"/> -->
+      <xsl:apply-templates select="gml:edge[6]"/> 
     </svg>
 
 
@@ -58,6 +57,8 @@
 	lop is at (350,25) -->
 
 
+    <xsl:variable name="source_id"><xsl:value-of select="@source"/></xsl:variable>
+    <xsl:variable name="source"><xsl:value-of select="../gml:node[@id = $source_id]"/></xsl:variable>
 
     <xsl:variable name="source_x">600</xsl:variable>
     <xsl:variable name="source_y">200</xsl:variable>
@@ -80,8 +81,7 @@
 	    font-family="verdana" font-size="16" 
 	    text-anchor="middle" background="black">
 	<xsl:value-of select="@label"/>
- 	(<xsl:value-of select="$text_y"/>)
-	(weight: <xsl:value-of select="gml:data[@key='weight']"/>)
+	(source: <xsl:value-of select="$source"/>)
       </text>
       <use xlink:href="#Triangle" transform="translate({$arrow_left_x} {$arrow_left_y}) rotate(90)" overflow="visible"/>
     </g>
