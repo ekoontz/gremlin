@@ -6,6 +6,7 @@
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:svg="http://www.w3.org/2000/svg"
    version="1.0">
 
   <xsl:template match="/">
@@ -31,12 +32,12 @@
   </xsl:template>
 
   <xsl:template match="gml:graph" mode="vertices">
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-	<path id="Triangle" d="M 10,0 L -8,9 v-18 z" fill="black" stroke="none" />
-      </defs>
+    <svg:svg version="1.1">
+      <svg:defs>
+	<svg:path id="Triangle" d="M 10,0 L -8,9 v-18 z" fill="black" stroke="none" />
+      </svg:defs>
       <xsl:apply-templates select="gml:edge"/>
-    </svg>
+    </svg:svg>
   </xsl:template>
 
   <xsl:template match="gml:node">
@@ -90,16 +91,6 @@
     </tr>
   </xsl:template>
 
-  <xsl:template match="*">
-    <div class="catchall">
-      catchall[name()=<xsl:value-of select="name()"/>]: <xsl:value-of select="."/>
-    </div>
-  </xsl:template>
-
-  <xsl:template match="*" mode="css">
-    <html:link href="graphml.css" media="screen" rel="stylesheet" type="text/css" />
-  </xsl:template>
-
   <xsl:template match="gml:edge">
     <xsl:variable name="source_id"><xsl:value-of select="@source"/></xsl:variable>
     <xsl:variable name="target_id"><xsl:value-of select="@target"/></xsl:variable>
@@ -133,6 +124,18 @@
       <use xlink:href="#Triangle" transform="translate({$arrow_left_x} {$arrow_left_y}) rotate(90)" overflow="visible"/>
     </g>
 
+  </xsl:template>
+
+  <xsl:template match="*" mode="css">
+    <html:link href="graphml.css" media="screen" rel="stylesheet" type="text/css" />
+  </xsl:template>
+
+  <xsl:template match="*" mode="js"/>
+
+  <xsl:template match="*">
+    <div class="catchall">
+      catchall[name()=<xsl:value-of select="name()"/>]: <xsl:value-of select="."/>
+    </div>
   </xsl:template>
 
 </xsl:stylesheet>
