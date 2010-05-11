@@ -17,8 +17,8 @@
 	<path id="Triangle" d="M 10,0 L -8,9 v-18 z" fill="black" stroke="none" />
       </defs>
       <g fill="white" stroke="black">
-	<path fill="none" stroke-width="3" d="M118,130 225,85" />
-	<path fill="none" stroke-width="3" d="M265,70 360,29" />
+	<path fill="none" stroke-width="3" d="M118,130 C150,20 215,150 225,85" />
+	<path fill="none" stroke-width="3" d="M229,65 C250,10 255,70 360,29" />
 	<text fill="solid" x="230" y="80" font-family="verdana" 
 	      font-size="16" text-anchor="middle" background="black">created</text>
 	<use xlink:href="#Triangle" transform="translate(366 26) rotate(340)" overflow="visible"/>
