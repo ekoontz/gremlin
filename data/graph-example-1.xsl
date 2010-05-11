@@ -70,7 +70,7 @@
     <xsl:variable name="arrow_left_y"><xsl:value-of select="$dest_y + 10"/></xsl:variable>
 
     <g xmlns="http://www.w3.org/2000/svg" fill="white" stroke="black">
-      <path fill="none" stroke-width="3" d="M{$source_x + 15},{$source_y + 75} {$dest_x},{$dest_y}" />
+      <path fill="none" stroke-width="3" d="M{$source_x + 15},{$source_y + 75} {$dest_x + 20},{$dest_y + 20}" />
       <text fill="black" stroke-width="1" 
 	    x="{$text_x}" y="{$text_y}" 
 	    font-family="verdana" font-size="16" 
