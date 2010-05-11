@@ -43,6 +43,8 @@
 	<use xlink:href="#Triangle" transform="translate(325 225) rotate(90)" overflow="visible"/>
       </g>
 
+
+      <xsl:apply-templates select="gml:edge[5]"/>
       <xsl:apply-templates select="gml:edge[6]"/>
 
     </svg>
@@ -55,28 +57,31 @@
 	peter is at (600,200)
 	lop is at (350,25) -->
 
-    <xsl:variable name="source_x">550</xsl:variable>
-    <xsl:variable name="text_x"><xsl:value-of select="$source_x + 40"/></xsl:variable>
 
-    <xsl:variable name="text_y">150</xsl:variable>
 
-    <xsl:variable name="source_y">100</xsl:variable>
+    <xsl:variable name="source_x">600</xsl:variable>
+    <xsl:variable name="source_y">200</xsl:variable>
+    <xsl:variable name="dest_x">350</xsl:variable>
+    <xsl:variable name="dest_y">25</xsl:variable>
+
+    <xsl:variable name="text_x"><xsl:value-of select="$source_x + 0"/></xsl:variable>
+    <xsl:variable name="text_y"><xsl:value-of select="$source_y - 100"/></xsl:variable>
+
     <xsl:variable name="source_top_y"><xsl:value-of select="$source_y + 25"/></xsl:variable>
 
-    <xsl:variable name="dest_x">450</xsl:variable>
-    <xsl:variable name="dest_y">105</xsl:variable>
 
     <xsl:variable name="arrow_left_x"><xsl:value-of select="$dest_x + 10"/></xsl:variable>
     <xsl:variable name="arrow_left_y"><xsl:value-of select="$dest_y + 10"/></xsl:variable>
 
     <g xmlns="http://www.w3.org/2000/svg" fill="white" stroke="black">
-      <path fill="none" stroke-width="3" d="M{$source_x + 15},{$source_y + 75} {$dest_x + 20},{$dest_y + 20}" />
+      <path fill="none" stroke-width="3" d="M{$source_x + 5},{$source_y + 5} {$dest_x + 5},{$dest_y + 5}" />
       <text fill="black" stroke-width="1" 
 	    x="{$text_x}" y="{$text_y}" 
 	    font-family="verdana" font-size="16" 
 	    text-anchor="middle" background="black">
 	<xsl:value-of select="@label"/>
  	(<xsl:value-of select="$text_y"/>)
+	(weight: <xsl:value-of select="gml:data[@key='weight']"/>)
       </text>
       <use xlink:href="#Triangle" transform="translate({$arrow_left_x} {$arrow_left_y}) rotate(90)" overflow="visible"/>
     </g>
