@@ -33,8 +33,8 @@
     <xsl:variable name="target_x"><xsl:value-of select="../gml:node[@id = $target_id]/@x + 0"/></xsl:variable>
     <xsl:variable name="target_y"><xsl:value-of select="../gml:node[@id = $target_id]/@y + 0"/></xsl:variable>
 
-    <xsl:variable name="text_x"><xsl:value-of select="($source_x + $target_x) div 2"/></xsl:variable>
-    <xsl:variable name="text_y"><xsl:value-of select="($source_y + $target_y) div 2"/></xsl:variable>
+    <xsl:variable name="text_x"><xsl:value-of select="(($source_x + $target_x) div 2) + 50"/></xsl:variable>
+    <xsl:variable name="text_y"><xsl:value-of select="(($source_y + $target_y) div 2) + 30"/></xsl:variable>
 
     <xsl:variable name="source_top_y"><xsl:value-of select="$source_y + 25"/></xsl:variable>
 
