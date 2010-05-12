@@ -19,10 +19,6 @@ CSS here:
 
 "graphml.css":http://github.com/ekoontz/gremlin/blob/master/data/graphml.css
 
-and SVG (for vertices) here:
-
-"vertex.xsl":http://github.com/ekoontz/gremlin/blob/master/data/vertex.svg
-
 Compare with the "reference implementation" from the Gremlin documentation Wiki:
 
 !http://github.com/tinkerpop/gremlin/raw/master/doc/images/graph-example-1.jpg!
