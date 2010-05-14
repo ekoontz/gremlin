@@ -10,7 +10,9 @@ div#graph {
     position:absolute;
     overflow:auto;
     border:2px solid #002200;
+    background: #b1ff91;
 }
+
 
 div.catchall {
     background: lightblue;
@@ -21,14 +23,14 @@ div.catchall {
 div.nodepack {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    border:1px solid blue;
+    border:1px solid #289976;
     padding:0.2em;
     position: absolute;
-    background:lightgrey;
+    background:#67cc8e;
 }
 
 div.node {
-    background: grey;
+    background: #ffe877;
     padding:0.2em;
     margin:2px;
     -moz-border-radius: 5px;
