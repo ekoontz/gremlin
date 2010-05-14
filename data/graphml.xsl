@@ -152,7 +152,7 @@
     <xsl:variable name="arrow_rotate">45</xsl:variable>
 
     <g xmlns="http://www.w3.org/2000/svg">
-      <path stroke-width="3" d="M{$source_x + 5},{$source_y + 5} {$target_x - 5},{$target_y + 5}" />
+      <path d="M{$source_x + 5},{$source_y + 5} {$target_x - 5},{$target_y + 5}" />
       <text stroke-width="1" 
 	    x="{$text_x}" y="{$text_y}" 
 	    font-family="verdana" font-size="24" 
