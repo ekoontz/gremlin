@@ -148,16 +148,18 @@
 
     <xsl:variable name="arrow_left_x"><xsl:value-of select="$target_x - 30"/></xsl:variable>
     <xsl:variable name="arrow_left_y"><xsl:value-of select="$target_y + 15"/></xsl:variable>
+    <!-- use trigonometry to determine angle of arrow. -->
+    <xsl:variable name="arrow_rotate">45</xsl:variable>
 
     <g xmlns="http://www.w3.org/2000/svg" fill="white" stroke="black">
-      <path fill="none" stroke-width="3" d="M{$source_x + 5},{$source_y + 5} {$target_x + 5},{$target_y + 5}" />
+      <path fill="none" stroke-width="3" d="M{$source_x + 5},{$source_y + 5} {$target_x - 5},{$target_y + 5}" />
       <text fill="black" stroke-width="1" 
 	    x="{$text_x}" y="{$text_y}" 
 	    font-family="verdana" font-size="16" 
 	    text-anchor="middle" background="black">
 	<xsl:value-of select="@label"/>
       </text>
-      <use xlink:href="#Triangle" transform="translate({$arrow_left_x} {$arrow_left_y}) rotate(90)" overflow="visible"/>
+      <use xlink:href="#Triangle" transform="translate({$arrow_left_x} {$arrow_left_y}) rotate({$arrow_rotate})" overflow="visible"/>
     </g>
 
   </xsl:template>

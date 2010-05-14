@@ -13,7 +13,7 @@
             <data key="name">marko</data>
             <data key="age">29</data>
         </node>
-        <node id="2" x="10" y="275">
+        <node id="2" x="10" y="375">
             <data key="name">vadas</data>
             <data key="age">27</data>
         </node>
@@ -25,7 +25,7 @@
             <data key="name">josh</data>
             <data key="age">32</data>
         </node>
-        <node id="5" x="325" y="400">
+        <node id="5" x="325" y="550">
             <data key="name">ripple</data>
             <data key="lang">java</data>
         </node>
