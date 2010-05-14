@@ -18,10 +18,10 @@
 	<xsl:apply-templates select="." mode="js"/>
       </head>
       <body>
-	<html:h1>Graphml Viewer</html:h1>
-	<html:div id="graph">
+	<h1>Graphml Viewer</h1>
+	<div id="graph">
 	  <xsl:apply-templates select="//gml:graphml/gml:graph"/>
-	</html:div>
+	</:div>
       </body>
     </html>
   </xsl:template>
