@@ -26,3 +26,7 @@ Compare with the "reference implementation" from the Gremlin documentation Wiki:
 It depends on support for embedding SVG elements (the @svg@ tag) embedded insideHTML documents. Currently both Firefox and Safari support this: (Safari support shown).
 
 !http://github.com/ekoontz/gremlin/raw/master/data/firefox.png!
+
+h1. Related Work
+
+"Comparison between XML to SVG Transformation Mechanisms":http://www.svgopen.org/2003/papers/ComparisonXML2SVGTransformationMechanisms By Christophe Jolif 
