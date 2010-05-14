@@ -65,7 +65,9 @@
       <xsl:if test="$style">
 	<xsl:attribute name="style"><xsl:value-of select="$style"/></xsl:attribute>
       </xsl:if>
-      <xsl:apply-templates select="." mode="data"/>
+      <xsl:apply-templates select="." mode="data">
+	<xsl:with-param name="position" select="$position"/>
+      </xsl:apply-templates>
       
       <xsl:apply-templates select="." mode="ball">
 	<xsl:with-param name="position" select="$position"/>
@@ -77,19 +79,35 @@
 
   <xsl:template match="gml:node" mode="data">
     <xsl:param name="class"/>
+    <xsl:param name="position"/>
     <div class="node desc {$class}">
       <table>
 	<xsl:apply-templates select="gml:data"/>
-	<tr class="debug">
-	  <th>debug</th>
-	  <td><xsl:apply-templates select="." mode="debug"/></td>
-	</tr>
+	<xsl:if test="$position = '1'">
+	  <tr class="debug">
+	    <th>debug</th>
+	    <td><xsl:apply-templates select="//gml:edge[2]" mode="debug"/></td>
+	  </tr>
+	</xsl:if>
       </table>
     </div>
   </xsl:template>
 
-  <xsl:template match="*" mode="debug">
-    <xsl:value-of select="//gml:edge[1]"/>
+  <xsl:template match="gml:edge" mode="debug">
+    <xsl:variable name="source_id"><xsl:value-of select="@source"/></xsl:variable>
+    <xsl:variable name="target_id"><xsl:value-of select="@target"/></xsl:variable>
+
+    <xsl:variable name="source_x"><xsl:value-of select="../gml:node[@id = $source_id]/@x + 0"/></xsl:variable>
+    <xsl:variable name="source_y"><xsl:value-of select="../gml:node[@id = $source_id]/@y + 0"/></xsl:variable>
+
+    <xsl:variable name="target_x"><xsl:value-of select="../gml:node[@id = $target_id]/@x + 0"/></xsl:variable>
+    <xsl:variable name="target_y"><xsl:value-of select="../gml:node[@id = $target_id]/@y + 0"/></xsl:variable>
+
+    ( <xsl:value-of select="$source_x"/> , <xsl:value-of select="$source_y"/> )
+
+    ( <xsl:value-of select="$target_x"/> , <xsl:value-of select="$target_y"/> )
+
+
   </xsl:template>
 
   <xsl:template match="gml:data">
