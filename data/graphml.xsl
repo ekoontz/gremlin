@@ -110,12 +110,33 @@
       
       <xsl:variable name="target_x"><xsl:value-of select="../gml:node[@id = $target_id]/@x + 0"/></xsl:variable>
       <xsl:variable name="target_y"><xsl:value-of select="../gml:node[@id = $target_id]/@y + 0"/></xsl:variable>
+
+<!--
+  1 | 3 
+----+---
+  2 | 4
+-->
+
+      <xsl:variable name="quadrant">
+	<xsl:choose>
+	  <xsl:when test="($source_x &lt; $target_x) 
+			  and
+			  ($source_y &lt; $source_y)">1</xsl:when>
+	  <xsl:when test="($source_x &lt; $target_x) 
+			  and
+			  ($source_y &gt;= $source_y)">2</xsl:when>
+	  <xsl:when test="($source_x &gt;= $target_x) 
+			  and
+			  ($source_y &lt; $source_y)">3</xsl:when>
+	  <xsl:otherwise>4</xsl:otherwise>
+	</xsl:choose>
+
+      </xsl:variable>
       
       <xsl:variable name="arrow_left_x"><xsl:value-of select="$target_x - 30"/></xsl:variable>
       <xsl:variable name="arrow_left_y"><xsl:value-of select="$target_y + 15"/></xsl:variable>
-      
-      <xsl:value-of select="@source"/>:
-      ( <xsl:value-of select="$arrow_left_x"/> , <xsl:value-of select="$arrow_left_y"/> )
+     
+      <xsl:value-of select="@source"/>:(Q:<xsl:value-of select="$quadrant"/>)
     </xsl:if>
 
   </xsl:template>
