@@ -1,8 +1,8 @@
 Forked from  "tinkerpop's gremlin wiki":/tinkerpop/gremlin
 
-h1. XSL support for GraphML XML documents
+h1. using XSLT to render GraphML XML documents as HTML with embedded SVG.
 
-I've forked gremlin to work on adding XSL support to render GraphML documents as HTML documents, with embedded SVG for vertices. 
+I've forked gremlin to work on adding XSLT support to render GraphML documents as HTML documents, with embedded SVG for vertices. 
 
 Here is the source XML example of a GraphML-encoded graph :
 
