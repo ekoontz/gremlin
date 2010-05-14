@@ -83,10 +83,14 @@
     <div class="node desc {$class}">
       <table>
 	<xsl:apply-templates select="gml:data"/>
-	<xsl:if test="$position = '1'">
+	<xsl:if test="$position &gt;= '1'">
 	  <tr class="debug">
 	    <th>debug</th>
-	    <td><xsl:apply-templates select="//gml:edge[2]" mode="debug"/></td>
+	    <td>
+	      <xsl:apply-templates select="//gml:edge" mode="debug">
+		<xsl:with-param name="node_id"><xsl:value-of select="$position"/></xsl:with-param>
+	      </xsl:apply-templates>
+	    </td>      
 	  </tr>
 	</xsl:if>
       </table>
@@ -94,19 +98,28 @@
   </xsl:template>
 
   <xsl:template match="gml:edge" mode="debug">
-    <xsl:variable name="source_id"><xsl:value-of select="@source"/></xsl:variable>
-    <xsl:variable name="target_id"><xsl:value-of select="@target"/></xsl:variable>
+    <xsl:param name="node_id"/>
 
-    <xsl:variable name="source_x"><xsl:value-of select="../gml:node[@id = $source_id]/@x + 0"/></xsl:variable>
-    <xsl:variable name="source_y"><xsl:value-of select="../gml:node[@id = $source_id]/@y + 0"/></xsl:variable>
+    <xsl:if test="$node_id = @target">
 
-    <xsl:variable name="target_x"><xsl:value-of select="../gml:node[@id = $target_id]/@x + 0"/></xsl:variable>
-    <xsl:variable name="target_y"><xsl:value-of select="../gml:node[@id = $target_id]/@y + 0"/></xsl:variable>
-
-    ( <xsl:value-of select="$source_x"/> , <xsl:value-of select="$source_y"/> )
-
-    ( <xsl:value-of select="$target_x"/> , <xsl:value-of select="$target_y"/> )
-
+      <xsl:variable name="source_id"><xsl:value-of select="@source"/></xsl:variable>
+      <xsl:variable name="target_id"><xsl:value-of select="@target"/></xsl:variable>
+      
+      <xsl:variable name="source_x"><xsl:value-of select="../gml:node[@id = $source_id]/@x + 0"/></xsl:variable>
+      <xsl:variable name="source_y"><xsl:value-of select="../gml:node[@id = $source_id]/@y + 0"/></xsl:variable>
+      
+      <xsl:variable name="target_x"><xsl:value-of select="../gml:node[@id = $target_id]/@x + 0"/></xsl:variable>
+      <xsl:variable name="target_y"><xsl:value-of select="../gml:node[@id = $target_id]/@y + 0"/></xsl:variable>
+      
+      <xsl:variable name="arrow_left_x"><xsl:value-of select="$target_x - 50"/></xsl:variable>
+      <xsl:variable name="arrow_left_y"><xsl:value-of select="$target_y - 10"/></xsl:variable>
+      
+      <xsl:value-of select="@source"/>:( <xsl:value-of select="$source_x"/> , <xsl:value-of select="$source_y"/> )
+      
+      ( <xsl:value-of select="$target_x"/> , <xsl:value-of select="$target_y"/> )
+      
+      ( <xsl:value-of select="$arrow_left_x"/> , <xsl:value-of select="$arrow_left_y"/> )
+    </xsl:if>
 
   </xsl:template>
 
@@ -136,8 +149,8 @@
     <xsl:variable name="source_top_y"><xsl:value-of select="$source_y + 25"/></xsl:variable>
 
 
-    <xsl:variable name="arrow_left_x"><xsl:value-of select="$target_x + 10"/></xsl:variable>
-    <xsl:variable name="arrow_left_y"><xsl:value-of select="$target_y + 10"/></xsl:variable>
+    <xsl:variable name="arrow_left_x"><xsl:value-of select="$target_x - 50"/></xsl:variable>
+    <xsl:variable name="arrow_left_y"><xsl:value-of select="$target_y - 10"/></xsl:variable>
 
     <g xmlns="http://www.w3.org/2000/svg" fill="white" stroke="black">
       <path fill="none" stroke-width="3" d="M{$source_x + 5},{$source_y + 5} {$target_x + 5},{$target_y + 5}" />
