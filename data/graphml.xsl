@@ -113,7 +113,7 @@
 
 <!--
   1 | 3 
-----+---
+-=-=+=-=-
   2 | 4
 -->
 
@@ -121,16 +121,15 @@
 	<xsl:choose>
 	  <xsl:when test="($source_x &lt; $target_x) 
 			  and
-			  ($source_y &lt; $source_y)">1</xsl:when>
+			  ($source_y &lt; $target_y)">1</xsl:when>
 	  <xsl:when test="($source_x &lt; $target_x) 
 			  and
-			  ($source_y &gt;= $source_y)">2</xsl:when>
+			  ($source_y &gt;= $target_y)">2</xsl:when>
 	  <xsl:when test="($source_x &gt;= $target_x) 
 			  and
-			  ($source_y &lt; $source_y)">3</xsl:when>
+			  ($source_y &lt; $target_y)">3</xsl:when>
 	  <xsl:otherwise>4</xsl:otherwise>
 	</xsl:choose>
-
       </xsl:variable>
       
       <xsl:variable name="arrow_left_x"><xsl:value-of select="$target_x - 30"/></xsl:variable>
@@ -164,16 +163,41 @@
     <xsl:variable name="text_x"><xsl:value-of select="(($source_x + $target_x) div 2) + 50"/></xsl:variable>
     <xsl:variable name="text_y"><xsl:value-of select="(($source_y + $target_y) div 2) + 30"/></xsl:variable>
 
-    <xsl:variable name="source_top_y"><xsl:value-of select="$source_y + 25"/></xsl:variable>
+    <xsl:variable name="quadrant">
+      <xsl:choose>
+	<xsl:when test="($source_x &lt; $target_x) 
+			and
+			($source_y &lt; $target_y)">1</xsl:when>
+	<xsl:when test="($source_x &lt; $target_x) 
+			and
+			($source_y &gt;= $target_y)">2</xsl:when>
+	<xsl:when test="($source_x &gt;= $target_x) 
+			and
+			($source_y &lt; $target_y)">3</xsl:when>
+	<xsl:otherwise>4</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <xsl:variable name="source_x_offset"><xsl:call-template name="source_x_offset"><xsl:with-param name="quadrant"><xsl:value-of select="$quadrant"/></xsl:with-param></xsl:call-template></xsl:variable>
+    <xsl:variable name="source_y_offset"><xsl:call-template name="source_y_offset"><xsl:with-param name="quadrant"><xsl:value-of select="$quadrant"/></xsl:with-param></xsl:call-template></xsl:variable>
+
+    <xsl:variable name="target_x_offset"><xsl:call-template name="target_x_offset"><xsl:with-param name="quadrant"><xsl:value-of select="$quadrant"/></xsl:with-param></xsl:call-template></xsl:variable>
+    <xsl:variable name="target_y_offset"><xsl:call-template name="target_y_offset"><xsl:with-param name="quadrant"><xsl:value-of select="$quadrant"/></xsl:with-param></xsl:call-template></xsl:variable>
 
 
-    <xsl:variable name="arrow_left_x"><xsl:value-of select="$target_x - 30"/></xsl:variable>
-    <xsl:variable name="arrow_left_y"><xsl:value-of select="$target_y + 15"/></xsl:variable>
+    <xsl:variable name="arrow_left_x"><xsl:value-of select="$target_x + $target_x_offset"/></xsl:variable>
+    <xsl:variable name="arrow_left_y"><xsl:value-of select="$target_y + $target_y_offset"/></xsl:variable>
     <!-- use trigonometry to determine angle of arrow. -->
-    <xsl:variable name="arrow_rotate">45</xsl:variable>
+    <xsl:variable name="arrow_rotate">
+      <xsl:call-template name="arrow_rotate">
+	<xsl:with-param name="quadrant"><xsl:value-of select="$quadrant"/></xsl:with-param>
+      </xsl:call-template>
+    </xsl:variable>
+
 
     <g xmlns="http://www.w3.org/2000/svg">
-      <path d="M{$source_x + 5},{$source_y + 5} {$target_x - 5},{$target_y + 5}" />
+      <path d="M{$source_x + $source_x_offset},{$source_y + $source_y_offset}
+	       {$target_x + $target_x_offset},{$target_y + $target_y_offset}" />
       <text stroke-width="1" 
 	    x="{$text_x}" y="{$text_y}" 
 	    font-family="verdana" font-size="24" 
@@ -195,6 +219,46 @@
     <div class="catchall">
       catchall[name()=<xsl:value-of select="name()"/>]: <xsl:value-of select="."/>
     </div>
+  </xsl:template>
+
+  <xsl:template name="source_x_offset">
+    <xsl:param name="quadrant"/>
+    <xsl:choose>
+      <xsl:when test="$quadrant = '3'">40</xsl:when>
+      <xsl:otherwise>0</xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <xsl:template name="source_y_offset">
+    <xsl:param name="quadrant"/>
+    <xsl:choose>
+      <xsl:when test="$quadrant = '3'">100</xsl:when>
+      <xsl:otherwise>0</xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <xsl:template name="target_x_offset">
+    <xsl:param name="quadrant"/>
+    <xsl:choose>
+      <xsl:when test="$quadrant = '3'">45</xsl:when>
+      <xsl:otherwise>0</xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <xsl:template name="target_y_offset">
+    <xsl:param name="quadrant"/>
+    <xsl:choose>
+      <xsl:when test="$quadrant = '3'">-40</xsl:when>
+      <xsl:otherwise>0</xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <xsl:template name="arrow_rotate">
+    <xsl:param name="quadrant"/>
+    <xsl:choose>
+      <xsl:when test="$quadrant = '3'">115</xsl:when>
+      <xsl:otherwise>0</xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
 </xsl:stylesheet>
