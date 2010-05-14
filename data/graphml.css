@@ -68,4 +68,17 @@ div.desc td {
     text-align:right;
 }
 
+g {
+    fill:#ffe877;
+    stroke:#67cc8e;
+}
 
+text {
+    stroke:#67cc8e;
+    fill:black;
+}
+
+path {
+    stroke:black;
+    fill:#67cc8e;
+}

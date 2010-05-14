@@ -34,7 +34,7 @@
   <xsl:template match="gml:graph" mode="vertices">
     <svg:svg version="1.1">
       <svg:defs>
-	<svg:path id="Triangle" d="M 10,0 L -8,9 v-18 z" fill="black" stroke="none" />
+	<svg:path id="Triangle" d="M 10,0 L -8,9 v-18 z"/>
       </svg:defs>
       <xsl:apply-templates select="gml:edge"/>
     </svg:svg>
@@ -151,11 +151,11 @@
     <!-- use trigonometry to determine angle of arrow. -->
     <xsl:variable name="arrow_rotate">45</xsl:variable>
 
-    <g xmlns="http://www.w3.org/2000/svg" fill="white" stroke="black">
-      <path fill="none" stroke-width="3" d="M{$source_x + 5},{$source_y + 5} {$target_x - 5},{$target_y + 5}" />
-      <text fill="black" stroke-width="1" 
+    <g xmlns="http://www.w3.org/2000/svg">
+      <path stroke-width="3" d="M{$source_x + 5},{$source_y + 5} {$target_x - 5},{$target_y + 5}" />
+      <text stroke-width="1" 
 	    x="{$text_x}" y="{$text_y}" 
-	    font-family="verdana" font-size="16" 
+	    font-family="verdana" font-size="24" 
 	    text-anchor="middle" background="black">
 	<xsl:value-of select="@label"/>
       </text>
