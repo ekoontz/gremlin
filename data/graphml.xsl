@@ -21,7 +21,7 @@
 	<h1>Graphml Viewer</h1>
 	<div id="graph">
 	  <xsl:apply-templates select="//gml:graphml/gml:graph"/>
-	</:div>
+	</div>
       </body>
     </html>
   </xsl:template>
@@ -80,8 +80,16 @@
     <div class="node desc {$class}">
       <table>
 	<xsl:apply-templates select="gml:data"/>
+	<tr class="debug">
+	  <th>debug</th>
+	  <td><xsl:apply-templates select="." mode="debug"/></td>
+	</tr>
       </table>
     </div>
+  </xsl:template>
+
+  <xsl:template match="*" mode="debug">
+    <xsl:value-of select="//gml:edge[1]"/>
   </xsl:template>
 
   <xsl:template match="gml:data">
