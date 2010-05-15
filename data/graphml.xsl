@@ -9,6 +9,8 @@
    xmlns:svg="http://www.w3.org/2000/svg"
    version="1.0">
 
+  <xsl:variable name="debug">false</xsl:variable>
+
   <xsl:template match="/">
     <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
       <head>
@@ -34,7 +36,7 @@
   <xsl:template match="gml:graph" mode="vertices">
     <svg:svg version="1.1">
       <svg:defs>
-	<svg:path id="Triangle" d="M 10,0 L -8,9 v-18 z"/>
+	<svg:path id="Triangle" d="M 15,0 L -8,9 v-18 z"/>
       </svg:defs>
       <xsl:apply-templates select="gml:edge"/>
     </svg:svg>
@@ -83,15 +85,17 @@
     <div class="node desc {$class}">
       <table>
 	<xsl:apply-templates select="gml:data"/>
-	<xsl:if test="$position &gt;= '1'">
-	  <tr class="debug">
-	    <th>debug</th>
-	    <td>
-	      <xsl:apply-templates select="//gml:edge" mode="debug">
-		<xsl:with-param name="node_id"><xsl:value-of select="$position"/></xsl:with-param>
-	      </xsl:apply-templates>
-	    </td>      
-	  </tr>
+	<xsl:if test="$debug = 'true'">
+	  <xsl:if test="$position &gt;= '1'">
+	    <tr class="debug">
+	      <th>debug</th>
+	      <td>
+		<xsl:apply-templates select="//gml:edge" mode="debug">
+		  <xsl:with-param name="node_id"><xsl:value-of select="$position"/></xsl:with-param>
+		</xsl:apply-templates>
+	      </td>      
+	    </tr>
+	  </xsl:if>
 	</xsl:if>
       </table>
     </div>
@@ -224,7 +228,10 @@
   <xsl:template name="source_x_offset">
     <xsl:param name="quadrant"/>
     <xsl:choose>
+      <xsl:when test="$quadrant = '1'">50</xsl:when>
+      <xsl:when test="$quadrant = '2'">60</xsl:when>
       <xsl:when test="$quadrant = '3'">40</xsl:when>
+      <xsl:when test="$quadrant = '4'">40</xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -232,7 +239,10 @@
   <xsl:template name="source_y_offset">
     <xsl:param name="quadrant"/>
     <xsl:choose>
+      <xsl:when test="$quadrant = '1'">100</xsl:when>
+      <xsl:when test="$quadrant = '2'">-30</xsl:when>
       <xsl:when test="$quadrant = '3'">100</xsl:when>
+      <xsl:when test="$quadrant = '4'">-30</xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -240,7 +250,10 @@
   <xsl:template name="target_x_offset">
     <xsl:param name="quadrant"/>
     <xsl:choose>
+      <xsl:when test="$quadrant = '1'">45</xsl:when>
+      <xsl:when test="$quadrant = '2'">45</xsl:when>
       <xsl:when test="$quadrant = '3'">45</xsl:when>
+      <xsl:when test="$quadrant = '4'">55</xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -248,7 +261,10 @@
   <xsl:template name="target_y_offset">
     <xsl:param name="quadrant"/>
     <xsl:choose>
+      <xsl:when test="$quadrant = '1'">-35</xsl:when>
+      <xsl:when test="$quadrant = '2'">115</xsl:when>
       <xsl:when test="$quadrant = '3'">-40</xsl:when>
+      <xsl:when test="$quadrant = '4'">100</xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -256,7 +272,10 @@
   <xsl:template name="arrow_rotate">
     <xsl:param name="quadrant"/>
     <xsl:choose>
-      <xsl:when test="$quadrant = '3'">115</xsl:when>
+      <xsl:when test="$quadrant = '1'">30</xsl:when>
+      <xsl:when test="$quadrant = '2'">315</xsl:when>
+      <xsl:when test="$quadrant = '3'">135</xsl:when>
+      <xsl:when test="$quadrant = '4'">225</xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
   </xsl:template>
