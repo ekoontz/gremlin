@@ -1,29 +1,32 @@
 digraph Grammar {
+	/* translated into .gv language
+	 by Eugene Koontz <ekoontz@hiro-tan.org>
+	  from http://www.graphviz.org/doc/info/lang.html */
 
 	node [ shape=circle, fixedsize=true, width=0.9 ];
 
-	"graph";stmt_list;stmt;node_stmt;edge_stmt;attr_stmt;
-	"subgraph";attr_stmt;attr_list;a_list;"id";
-	node_id;edgeRHS;
-	port;
-	edge_op;
-	compass_pt;	
+	"graph" stmt_list stmt node_stmt edge_stmt attr_stmt
+	"subgraph" attr_stmt attr_list a_list "id"
+	node_id edgeRHS
+	port
+	edge_op
+	compass_pt
 	
-	n;ne;e;se;s;sw;w;nw;c;
-
 	node [ shape=box, fixedsize=true, width=0.9 ];
 	
-	"strict";_graph;_digraph;lbracket;rbracket;
+	"\"strict\"" "\"graph\"" "\"digraph\"" "{";"}" ";"
+	n ne e se s sw w nw c
 
-	"graph"->"strict";
-	"graph"->_graph;
-	"graph"->_digraph;
+	"graph"->"\"strict\"";
+	"graph"->"\"graph\"";
+	"graph"->"\"digraph\"";
 	"graph"->"id";
-	"graph"->lbracket;
+	"graph"->"{"
 	"graph"->stmt_list;
-	"graph"->rbracket;
+	"graph"->"}"
 
 	stmt_list->stmt;
+	stmt_list->";"
 	stmt_list->stmt_list;
 
 	stmt->node_stmt;
@@ -39,12 +42,17 @@ digraph Grammar {
 	a_list->a_list;
 	
 	edge_stmt->node_id;
+	edge_stmt->subgraph;
 	edge_stmt->edgeRHS;
+	edge_stmt->attr_list;
 
 	edgeRHS->edge_op;
 	edgeRHS->node_id;
 	edgeRHS->"subgraph";
 	edgeRHS->edgeRHS;
+
+	node_stmt->node_id;
+	node_stmt->attr_list;
 
 	node_id->"id";
 	node_id->port;
