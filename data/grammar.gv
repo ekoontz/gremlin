@@ -2,8 +2,8 @@ digraph Grammar {
 
 	node [ shape=circle, fixedsize=true, width=0.9 ];
 
-	_graph;stmt_list;stmt;node_stmt;edge_stmt;attr_stmt;
-	_subgraph;attr_stmt;attr_list;a_list;_id;
+	"graph";stmt_list;stmt;node_stmt;edge_stmt;attr_stmt;
+	"subgraph";attr_stmt;attr_list;a_list;"id";
 	node_id;edgeRHS;
 	port;
 	edge_op;
@@ -11,20 +11,31 @@ digraph Grammar {
 	
 	n;ne;e;se;s;sw;w;nw;c;
 
-	_graph->stmt_list;
+	node [ shape=box, fixedsize=true, width=0.9 ];
+	
+	"strict";_graph;_digraph;lbracket;rbracket;
+
+	"graph"->"strict";
+	"graph"->_graph;
+	"graph"->_digraph;
+	"graph"->"id";
+	"graph"->lbracket;
+	"graph"->stmt_list;
+	"graph"->rbracket;
+
 	stmt_list->stmt;
 	stmt_list->stmt_list;
 
 	stmt->node_stmt;
 	stmt->edge_stmt;
 	stmt->attr_stmt;	
-	stmt->_subgraph;
+	stmt->"subgraph";
 
 	attr_stmt->attr_list;
 
 	attr_list->a_list;
 	attr_list->attr_list;
-	attr_list->_id;
+	attr_list->"id";
 	a_list->a_list;
 	
 	edge_stmt->node_id;
@@ -32,16 +43,16 @@ digraph Grammar {
 
 	edgeRHS->edge_op;
 	edgeRHS->node_id;
-	edgeRHS->_subgraph;
+	edgeRHS->"subgraph";
 	edgeRHS->edgeRHS;
 
-	node_id->_id;
+	node_id->"id";
 	node_id->port;
 
-	port->_id;
+	port->"id";
 	port->compass_pt;
-	_subgraph->_id;
-	_subgraph->stmt_list;
+	"subgraph"->"id";
+	"subgraph"->stmt_list;
 
 	compass_pt->n;
 	compass_pt->ne;
