@@ -1,23 +1,20 @@
-  /Users/ekoontz/gremlin/data:
-  total used in directory 3008 available 30890392
-  drwxr-xr-x  22 ekoontz  staff      748 May 15 12:27 .
-  drwxr-xr-x  19 ekoontz  staff      646 May 14 00:01 ..
-  -rw-r--r--@  1 ekoontz  staff    12292 May 11 08:10 .DS_Store
-  -rw-r--r--@  1 ekoontz  staff   128921 May 11 08:20 firefox.png
-  -rw-r--r--   1 ekoontz  staff      240 May 15 12:26 foo.gv
-  -rw-r--r--   1 ekoontz  staff      101 May 15 12:17 foo.gv~
-  -rw-r--r--   1 ekoontz  staff        0 May 11 08:14 graph-example-1.html
-  -rw-r--r--   1 ekoontz  staff     1741 May  9 11:31 graph-example-1.ntriple
-  -rw-r--r--   1 ekoontz  staff     2190 May 14 19:49 graph-example-1.xml
-  -rw-r--r--   1 ekoontz  staff     2190 May 13 22:09 graph-example-1.xml~
-  -rw-r--r--   1 ekoontz  staff  1110501 May  9 11:31 graph-example-2.xml
-  -rw-r--r--   1 ekoontz  staff     1220 May 14 19:48 graphml.css
-  -rw-r--r--   1 ekoontz  staff     1390 May  9 21:22 graphml.css~
-  -rw-r--r--   1 ekoontz  staff    10465 May 14 19:49 graphml.xsl
-  -rw-r--r--   1 ekoontz  staff     5104 May 11 08:29 graphml.xsl~
-  -rw-r--r--@  1 ekoontz  staff    75884 May  9 22:45 old.png
-  -rw-r--r--   1 ekoontz  staff      862 May 15 12:17 philo.gv
-  -rw-r--r--   1 ekoontz  staff      860 May 15 12:10 philo.gv~
-  -rw-r--r--   1 ekoontz  staff     1842 May 14 19:25 quadrants.xml
-  -rw-r--r--   1 ekoontz  staff     2190 May 14 00:22 quadrants.xml~
-  -rw-r--r--@  1 ekoontz  staff   128046 May 10 23:40 safari.png
+digraph Foo {
+	node [shape=circle,fixedsize=true,width=0.9]; 
+	marko;
+	vadas;
+	josh;
+	peter;
+
+	node [shape=box,fixedsize=true,width=1.0];
+	ripple;
+	lop;
+
+	marko->vadas;
+	marko->josh;
+	marko->lop;
+	josh->ripple;
+	josh->lop;
+	peter->lop;
+}
+
+
